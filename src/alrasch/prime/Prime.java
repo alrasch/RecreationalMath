@@ -1,4 +1,4 @@
-package prime;
+package alrasch.prime;
 
 public class Prime {
     public Prime() {}

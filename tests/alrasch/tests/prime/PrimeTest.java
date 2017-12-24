@@ -11,9 +11,9 @@ class PrimeTest {
     void primeTestTrue() {
         Prime prime = new Prime();
 
-        int[] primes = new int[]{2, 3, 5, 7, 11, 13, 7919, 21433};
+        long[] primes = new long[]{2L, 3L, 5L, 7L, 11L, 13L, 7919L, 21433L};
 
-        for (int number : primes) {
+        for (long number : primes) {
             assertTrue(prime.isPrime(number));
         }
     }
@@ -22,9 +22,14 @@ class PrimeTest {
     void primeTestFalse() {
         Prime prime = new Prime();
 
-        int[] nonPrimes = new int[]{1, 4, 6, 8, 9, 10, 12, 14, 15, 21, 25, 111, 1035, 10023};
+        long[] nonPrimes = new long[]{
+                1L, 4L, 6L, 8L, 9L,
+                10L, 12L, 14L, 15L, 21L, 25L,
+                111L, 1035L, 10023L,
+                5915587279L, 92233720368547707L
+        };
 
-        for (int number : nonPrimes) {
+        for (long number : nonPrimes) {
             assertFalse(prime.isPrime(number));
         }
     }

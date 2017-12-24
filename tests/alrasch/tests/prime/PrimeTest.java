@@ -25,7 +25,6 @@ class PrimeTest {
         int[] nonPrimes = new int[]{1, 4, 6, 8, 9, 10, 12, 14, 15, 21, 25, 111, 1035, 10023};
 
         for (int number : nonPrimes) {
-            System.out.println(number);
             assertFalse(prime.isPrime(number));
         }
     }

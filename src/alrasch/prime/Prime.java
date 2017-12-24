@@ -8,13 +8,13 @@ public class Prime {
         System.out.println(p.isPrime(5));
     }
 
-    public boolean isPrime(int n) {
-        if (n == 1) {
-            return false;
+    public boolean isPrime(long n) {
+        if (n == 2 || n == 3) {
+            return true;
         }
 
-        if (n % 2 == 0 || n == 3) {
-            return true;
+        if (n == 1 || n % 2 == 0) {
+            return false;
         }
 
         for (int i = 3; i <= Math.ceil(Math.sqrt(n)) + 1; i += 2) {

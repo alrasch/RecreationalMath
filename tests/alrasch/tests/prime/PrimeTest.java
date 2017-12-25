@@ -3,6 +3,10 @@ package alrasch.tests.prime;
 import alrasch.prime.Prime;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -31,6 +35,20 @@ class PrimeTest {
 
         for (long number : nonPrimes) {
             assertFalse(prime.isPrime(number));
+        }
+    }
+
+    @Test
+    void testGetNthPrime() {
+        Prime prime = new Prime();
+
+        Map<Integer, Long> map = new HashMap<>();
+        map.put(1, 2L);
+        map.put(2, 3L);
+        map.put(1000, 7919L);
+
+        for (int key : map.keySet()) {
+            assertEquals((long) map.get(key), prime.getNthPrime(key));
         }
     }
 }

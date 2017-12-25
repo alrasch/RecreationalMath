@@ -1,11 +1,46 @@
 package alrasch.prime;
 
-public class Prime {
-    public Prime() {}
+import java.util.ArrayList;
 
-    public static void main(String[] args) {
-        Prime p = new Prime();
-        System.out.println(p.isPrime(5));
+public class Prime {
+    private ArrayList<Long> primes;
+
+    public Prime() {
+        this.primes = new ArrayList<>();
+    }
+
+    private void init() {
+        if (this.primes.size() == 0) {
+            this.primes.add(2L);
+        }
+    }
+
+    /**
+     * Generates the next prime in this.primes
+     */
+    private void generateNext() {
+        this.init();
+
+        long last = this.primes.get(this.primes.size() - 1);
+        if (last == 2) {
+            this.primes.add(3L);
+            return;
+        }
+
+        last += 2;
+
+        while (!isPrime(last)) {
+            last += 2;
+        }
+        this.primes.add(last);
+    }
+
+    public long getNthPrime(int n) {
+        this.init();
+        while (this.primes.size() < n) {
+            this.generateNext();
+        }
+        return this.primes.get(this.primes.size()-1);
     }
 
     public boolean isPrime(long n) {
